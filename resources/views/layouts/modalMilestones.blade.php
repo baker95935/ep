@@ -7,7 +7,8 @@
         <h4 class="modal-title" id="myModalLabel">Meilenstein erstellen & bearbeiten  </h4>
       </div>
       <div class="modal-body">
-         <form action="{{ URL('meilensteine') }}"  method="POST">
+         <form action="{{ URL('meilensteine/store') }}"    method="POST">
+         <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group">
             <label for="recipient-name" class="control-label">Bezeichnung des Meilensteines</label>
             <input type="text" class="form-control" name="name" id="name">
@@ -34,3 +35,4 @@
       </form>
     </div>
   </div>
+</div>

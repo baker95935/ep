@@ -28,4 +28,26 @@ class MilestonesController extends Controller
 
         return view('aufgaben', compact('tasks','users'));
     }
+    
+    /**
+     *save
+     */
+    public function store(Request $request)
+    {
+    	$mileInfo = new Milestone;
+  
+    	$mileInfo->name = $request->input('name');
+    	$mileInfo->description = $request->input('description');
+    	$duedate=date('Y-m-d H:i:s',strtotime($request->input('duedate')));
+ 
+    	$mileInfo->statusPercentage=0;
+    
+    	if ($mileInfo->save()) {
+    		return redirect('meilensteine');
+    	} else {
+    		return back()->withInput()->withErrors('error,please retry');
+    	}
+    }
+    
+
 }
