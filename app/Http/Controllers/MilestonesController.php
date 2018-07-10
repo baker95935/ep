@@ -38,7 +38,7 @@ class MilestonesController extends Controller
   
     	$mileInfo->name = $request->input('name');
     	$mileInfo->description = $request->input('description');
-    	$duedate=date('Y-m-d H:i:s',strtotime($request->input('duedate')));
+    	$mileInfo->duedate=date('Y-m-d H:i:s',strtotime($request->input('duedate')));
  
     	$mileInfo->statusPercentage=0;
     
