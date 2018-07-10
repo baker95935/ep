@@ -25,8 +25,9 @@ class MilestonesController extends Controller
     {
         $tasks = Task::all()->where('milestone_id', '=', $meilenstein->id);
         $users = User::all();
-
-        return view('aufgaben', compact('tasks','users'));
+        $meilensteine = Milestone::all();
+ 
+        return view('aufgaben', compact('tasks','users','meilensteine'));
     }
     
     /**
