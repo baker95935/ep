@@ -26,24 +26,26 @@
             <thead>
             <tr>
               <th>Aufgabe</th>
-              <th>Verantwortlicher</th>
-              <th>Abgabe-Datum</th>
-              <th>Status</th>
               <th>Beschreibung</th>
+              <th>Status</th>
+              <th>Verantwortlicher</th>
+              <th>Milestone</th>
+              <th>Abgabedatum</th>
             </tr>
           </thead>
             @foreach ($tasks as $task)
               <tr>
                 <td>{{$task->name}}</td>
-                <td>{{$users[($task->user_id)-1]->name}}</td> {{-- Umformulierung in den Namen --}}
-                <td>{{$task->duedate}}</td>
-                <td>{{$task->status}}</td> {{-- Umformulierung in den Status!!! --}}
                 <td>{{str_limit($task->body,30)}}</td>
+                <td>{{$task->status}}</td> {{-- Umformulierung in den Status!!! --}}
+                <td>{{$users[($task->user_id)-1]->name}}</td> {{-- Umformulierung in den Namen --}}
+                <td>{{$task->milestone->name}}</td>
+                <td>{{$task->duedate}}</td>
               </tr>
             @endforeach
           </table>
         </div>
-        <!--Einbinden von JQuery fÃ¼r die Datatable -->
+        <!--Einbinden von JQuery f¶Ër die Datatable -->
         <script
         			  src="http://code.jquery.com/jquery-3.3.1.min.js"
         			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -67,6 +69,7 @@
 
 
         <!-- /.box -->
+</div>
 </div>
 </div>
 </div>

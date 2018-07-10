@@ -17,4 +17,6 @@ Route::get('/login', 'PagesController@login');
  
 Route::post('/meilensteine/store', 'MilestonesController@store');
 
+Route::post('/aufgaben/store', 'TasksController@store');
+
 Auth::routes();
