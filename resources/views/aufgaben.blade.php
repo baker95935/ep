@@ -44,7 +44,7 @@
                 <td>{{$task->duedate}}</td>
                 <td>  
 	      			
-	      		<a class="btn btn-success" onclick="getInfo({{$task->id}})"  data-toggle="modal" data-target="#tasksUpdate" data-id="edit">edit</a>
+	      		<button data-name="{{$task->name}}" data-body="{{$task->body}}" data-username="{{$users[($task->user_id)-1]->name}}" data-milestone="{{$task->milestone->name}}" data-duedate="{{$task->duedate}}" data-id="{{$task->id}}" class="btn btn-success"   data-toggle="modal" data-target="#tasksUpdate" >edit</button>
 	      			
   				</td>
   
@@ -77,24 +77,25 @@
 
         <!-- /.box -->
         <script>
-        //获取值
-		function getInfo(id)
-		{
-			 $.ajax({
-					url:"{{ URL('meilensteine/ajaxEdit') }}",
-					data:{id:id},
-					type:'post',
-					success:function(data){
-						if(data){
-							alert();
-							//location.reload();
-						}else{
-							layer.alert('操作失败，请重试');
-							return false;
-						}
-					}
+        	$(function() {
+      
+		      $('#tasksUpdate').on('shown.bs.modal', function (event) {
+				alert('fdsfds');
+		  		var button = $(event.relatedTarget); // Button that triggered the modal
+		  		var name = button.data('name'); // Extract info from data-* attributes
+		  		var body = button.data('body'); // Extract info from data-* attributes
+		  		var username = button.data('username'); // Extract info from data-* attributes
+		  		var milestone = button.data('milestone') ;// Extract info from data-* attributes
+		     	var duedate = button.data('duedate'); // Extract info from data-* attributes
+		 
+		  		var modal = $(this);
+		  		modal.find('.modal-body input').val(name);
+		  		modal.find('.modal-body #body').val(body);
+		  		modal.find('.modal-body #user_id').val(username);
+		  		modal.find('.modal-body #milestone_id').val(milestone);
+		  		modal.find('.modal-body #datetimepicker').val(duedate);
 				});
-		}
+	});
         </script>
 </div>
 </div>

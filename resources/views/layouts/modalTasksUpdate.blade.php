@@ -8,19 +8,19 @@
       </div>
       <div class="modal-body">
          <form action="{{ URL('meilensteine/update') }}" method="POST">
-          <input type="hidden" name="hiddenId" value="{{$task->id}}">
+          <input type="hidden" name="hiddenId" value="">
           <input type="hidden" name="_token" value="{{csrf_token()}}">
           <div class="form-group">
             <label for="recipient-name" class="control-label">Bezeichnung der Aufgabe</label>
-            <input type="text" class="form-control" name="name" value="{{$task->name}}" id="name" required>
+            <input type="text" class="form-control" name="name"  id="namename" required>
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">Beschreibung</label>
-            <textarea class="form-control" value="{{$task->body}}" id="message-text" name="body" required></textarea>
+            <textarea class="form-control" value="" id="message-text" name="body" required></textarea>
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">Verantwortlicher: </label>
-            <select class="form-control select2" style="width: 100%;" id="files" name="user_id" required>
+            <select class="form-control select2" style="width: 100%;" id="user_id" name="user_id" required>
               @foreach ($users as $u)
                 <option value="{{$u->id}}">{{$u->name}}</option>
               @endforeach
@@ -28,7 +28,7 @@
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">Milestone: </label>
-            <select class="form-control select2" style="width: 100%;" id="files" name="milestone_id" required>
+            <select class="form-control select2" style="width: 100%;" id="milestone_id" name="milestone_id" required>
               @foreach ($meilensteine as $ms)
               <option value="{{$ms->id}}">{{$ms->name}}</option>
                 @endforeach
@@ -40,7 +40,7 @@
               <div class="input-group-addon" >
                 <i class="fa fa-calendar"></i>
               </div>
-              <input type="text" class="form-control pull-right" id="datetimepickeraa" style="width:100%;" name="duedate" required/>
+              <input type="text" class="form-control pull-right" id="datetimepicker" style="width:100%;" name="duedate" required/>
             </div>
           </div>
           {{-- Einbindung einer notwenidigen js-Datei und "Aktivierung" des Kalendars der in dem input-Tag mit id:datetimepicker integriert ist--}}
