@@ -31,6 +31,7 @@
               <th>Verantwortlicher</th>
               <th>Milestone</th>
               <th>Abgabedatum</th>
+              <th>edit</th>
             </tr>
           </thead>
             @foreach ($tasks as $task)
@@ -41,6 +42,10 @@
                 <td>{{$users[($task->user_id)-1]->name}}</td> {{-- Umformulierung in den Namen --}}
                 <td>{{$task->milestone->name}}</td>
                 <td>{{$task->duedate}}</td>
+                <td>  
+	      			<a href="{{ URL('meilensteine/'.$task->id.'/edit') }}" class="btn btn-success">edit</a>
+  				</td>
+  
               </tr>
             @endforeach
           </table>

@@ -30,7 +30,12 @@
                 <tbody>
                 @foreach ($meilensteine as $ms)
                 <tr>
-                  <td><a href="{{ url('meilensteine')}}/{{$ms->id}}/aufgaben ">{{$ms->name}}</td>
+                  <td><div class="tools">
+                    <button type="button" style="background-color: white; border-color: transparent" class="btn btn-default" data-toggle="modal" data-target="#milestones1"> <!--auslagern in CSS-->                    <i class="fa fa-edit"></i>
+                  </button>
+                @include('layouts.modalMilestonesUpdate')
+                </div>
+                    <a href="{{ url('meilensteine')}}/{{$ms->id}}/aufgaben ">{{$ms->name}}</td>
                   <td>@include('layouts.statusLabel')</td>
                   <td>{{$ms->duedate}}</td>
                 </tr>
