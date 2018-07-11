@@ -43,7 +43,9 @@
                 <td>{{$task->milestone->name}}</td>
                 <td>{{$task->duedate}}</td>
                 <td>  
-	      			<a href="{{ URL('meilensteine/'.$task->id.'/edit') }}" class="btn btn-success">edit</a>
+	      			
+	      		<a class="btn btn-success" onclick="getInfo({{$task->id}})"  data-toggle="modal" data-target="#tasksUpdate" data-id="edit">edit</a>
+	      			
   				</td>
   
               </tr>
@@ -71,9 +73,29 @@
     <!-- Das Modal Popup wurde ausgelagert und wird an dieser Stelle eingebunden -->
   @include('layouts.modalTasks')
   </div>
-
+  @include('layouts.modalTasksUpdate')
 
         <!-- /.box -->
+        <script>
+        //获取值
+		function getInfo(id)
+		{
+			 $.ajax({
+					url:"{{ URL('meilensteine/ajaxEdit') }}",
+					data:{id:id},
+					type:'post',
+					success:function(data){
+						if(data){
+							alert();
+							//location.reload();
+						}else{
+							layer.alert('操作失败，请重试');
+							return false;
+						}
+					}
+				});
+		}
+        </script>
 </div>
 </div>
 </div>

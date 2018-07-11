@@ -7,7 +7,8 @@
         <h4 class="modal-title" id="myModalLabel">Aufgabe erstellen & bearbeiten</h4>
       </div>
       <div class="modal-body">
-        <form action="{{ URL('aufgaben/store')}}" method="POST">
+         <form action="{{ URL('meilensteine/update') }}" method="POST">
+          <input type="hidden" name="hiddenId" value="{{$task->id}}">
           <input type="hidden" name="_token" value="{{csrf_token()}}">
           <div class="form-group">
             <label for="recipient-name" class="control-label">Bezeichnung der Aufgabe</label>
@@ -15,7 +16,7 @@
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">Beschreibung</label>
-            <textarea class="form-control" id="message-text" name="body" required></textarea>
+            <textarea class="form-control" value="{{$task->body}}" id="message-text" name="body" required></textarea>
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">Verantwortlicher: </label>

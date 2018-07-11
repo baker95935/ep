@@ -21,6 +21,8 @@ Route::post('/aufgaben/store', 'TasksController@store');
 
 Route::get('/meilensteine/{meilenstein}/edit', 'MilestonesController@edit');
 
+Route::post('/meilensteine/ajaxEdit', 'MilestonesController@ajaxEdit');
+
 Route::post('/meilensteine/update', 'MilestonesController@update');
 
 Auth::routes();

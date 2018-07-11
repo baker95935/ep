@@ -59,7 +59,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="datetimepicker" class="control-label">Datum Fälligkeit</label>
+            <label for="datetimepicker" class="control-label">Datum F盲lligkeit</label>
             <div class="input-group date">
               <div class="input-group-addon" >
                 <i class="fa fa-calendar"></i>
@@ -71,12 +71,12 @@
           <script src="{{ URL::asset('js/jquery.datetimepicker.full.js')}}"></script>
           <script>
             $("#datetimepicker").datetimepicker();
-            {{-- Ändern der Einstellung, damit die Monate in Deutsch angezeigt werden --}}
+            {{-- 脛ndern der Einstellung, damit die Monate in Deutsch angezeigt werden --}}
             jQuery.datetimepicker.setLocale('de');
           </script>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
-        <input type="submit" class="btn btn-primary" value="Änderungen speichern">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Schlie脽en</button>
+        <input type="submit" class="btn btn-primary" value="脛nderungen speichern">
       </div>
     </form>
     </div>
