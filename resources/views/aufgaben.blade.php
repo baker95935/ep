@@ -52,13 +52,16 @@
             @endforeach
           </table>
         </div>
-        <!--Einbinden von JQuery f¶Ër die Datatable -->
+        <!--Einbinden von JQuery fç«¯r die Datatable -->
         <script
         			  src="http://code.jquery.com/jquery-3.3.1.min.js"
         			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         			  crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+        	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript">
                 $(document).ready(function(){
                   $('#aufgabenTabelle').DataTable();
@@ -77,25 +80,31 @@
 
         <!-- /.box -->
         <script>
-        	$(function() {
       
-		      $('#tasksUpdate').on('shown.bs.modal', function (event) {
-				alert('fdsfds');
-		  		var button = $(event.relatedTarget); // Button that triggered the modal
-		  		var name = button.data('name'); // Extract info from data-* attributes
-		  		var body = button.data('body'); // Extract info from data-* attributes
-		  		var username = button.data('username'); // Extract info from data-* attributes
-		  		var milestone = button.data('milestone') ;// Extract info from data-* attributes
-		     	var duedate = button.data('duedate'); // Extract info from data-* attributes
-		 
-		  		var modal = $(this);
-		  		modal.find('.modal-body input').val(name);
-		  		modal.find('.modal-body #body').val(body);
-		  		modal.find('.modal-body #user_id').val(username);
-		  		modal.find('.modal-body #milestone_id').val(milestone);
-		  		modal.find('.modal-body #datetimepicker').val(duedate);
-				});
-	});
+		      $(function () { $('#tasksUpdate').on('show.bs.modal', function (event) {
+		    		 
+			  		var button = $(event.relatedTarget); // Button that triggered the modal
+			  		var id = button.data('id');
+			  		var name = button.data('name'); // Extract info from data-* attributes
+			  		var body = button.data('body'); // Extract info from data-* attributes
+			  		var username = button.data('username'); // Extract info from data-* attributes
+			  		var milestone = button.data('milestone') ;// Extract info from data-* attributes
+			     	var duedate = button.data('duedate'); // Extract info from data-* attributes
+
+					
+			  		var modal = $(this);
+			  		modal.find('.hiddenId').val(id);
+			  		modal.find('.name').val(name);
+			  		modal.find('.body').val(body);
+			  		modal.find('.datetimepickeredit').val(duedate);
+			  		
+			  		//modal.find('.user_id').val(username);
+			  		//modal.find('.milestone_id').val(milestone);
+			  		
+			  		
+		          })
+		       });
+ 
         </script>
 </div>
 </div>

@@ -63,24 +63,6 @@ class MilestonesController extends Controller
     	return view('modalTasksUpdate',compact('taskInfo','users','meilensteine'));
     }
     
-    /*
-     * edit
-    */
-    public function ajaxEdit(Request $request)
-    {
-    	$meilenstein=$request->input('id');
-    	$taskInfo = Task::find($meilenstein);
-    	//$users = User::all();
-    	//$meilensteine = Milestone::all();
-
-    	$data=array();
-    	$data['name']=$taskInfo->name;
-    	$data['body']=$taskInfo->body;
-    	$data['id']=$taskInfo->id;
-    	var_dump($meilenstein);
-    	var_dump($data);exit;
-    	return json_encode($data);
-    }
     
     /*
      * update
@@ -88,7 +70,6 @@ class MilestonesController extends Controller
     public function update(Request $request)
     {
     	$meilenstein=$request->input('hiddenId');
-    	
  
     	$info = Task::find($meilenstein);
     	
