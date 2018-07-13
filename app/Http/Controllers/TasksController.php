@@ -63,7 +63,7 @@ class TasksController extends Controller
 	    
 	    
 	  if($info->save()) {
-	  	return redirect('meilensteine/'.$info->milestone_id.'/aufgaben');
+	  	return redirect('aufgaben');
 	  } else {
 	   	return back()->withInput()->withErrors('error,please retry');
 	  }
