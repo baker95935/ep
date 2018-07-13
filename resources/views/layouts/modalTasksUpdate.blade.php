@@ -7,7 +7,7 @@
         <h4 class="modal-title" id="myModalLabel">Aufgabe erstellen & bearbeiten</h4>
       </div>
       <div class="modal-body">
-         <form action="{{ URL('meilensteine/update') }}" method="POST">
+         <form action="{{ URL('aufgaben/update') }}" method="POST">
           <input type="hidden" name="_token" value="{{csrf_token()}}">
           <div class="form-group">
             <label for="recipient-name" class="control-label">Bezeichnung der Aufgabe</label>
@@ -57,4 +57,4 @@
     </form>
     </div>
   </div>
-  </div>
+  </div>                  

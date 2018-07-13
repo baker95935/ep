@@ -19,6 +19,7 @@
           <!-- /.box-header -->
           <div class="box-body">
             <div class="table-responsive">
+
               <table class="table no-margin">
                 <thead>
                 <tr>
@@ -28,18 +29,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($meilensteine as $ms)
-                <tr>
-                  <td><div class="tools">
-                    <button type="button" style="background-color: white; border-color: transparent" class="btn btn-default" data-toggle="modal" data-target="#milestones1"> <!--auslagern in CSS-->                    <i class="fa fa-edit"></i>
-                  </button>
-                @include('layouts.modalMilestonesUpdate')
-                </div>
+                  @foreach ($meilensteine as $ms)
+                  <tr>
+                    <td><div class="tools">
+                      <button type="button" style="background-color: white; border-color: transparent" class="btn btn-default" data-toggle="modal" data-id="{{$ms->id}}" data-name="{{$ms->name}}" data-description="{{$ms->description}}"  data-duedate="{{$ms->duedate}}" class="btn btn-success"   data-toggle="modal" data-target="#milestonesUpdate" > <!--auslagern in CSS-->                    <i class="fa fa-edit"></i>
+                    </button>
+                  @include('layouts.modalMilestonesUpdate')
+                  </div>
                     <a href="{{ url('meilensteine')}}/{{$ms->id}}/aufgaben ">{{$ms->name}}</td>
-                  <td>@include('layouts.statusLabel')</td>
-                  <td>{{$ms->duedate}}</td>
-                </tr>
-                @endforeach
+                    <td>@include('layouts.statusLabel')</td>
+                    <td>{{$ms->duedate}}</td>
+                  </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
@@ -57,6 +58,24 @@
           <!-- /.box-footer -->
   </section>
 </div>
+<script>
 
+$(function () { $('#milestonesUpdate').on('show.bs.modal', function (event) {
+
+		var button = $(event.relatedTarget); // Button that triggered the modal
+		var id = button.data('id');
+		var name = button.data('name'); // Extract info from data-* attributes
+		var description = button.data('description'); // Extract info from data-* attributes
+   		var duedate = button.data('duedate'); // Extract info from data-* attributes
+ 
+		var modal = $(this);
+		modal.find('.hiddenId').val(id);
+		modal.find('.name').val(name);
+		modal.find('.description').text(description);
+		modal.find('.datetimepickeredit').val(duedate);
+
+    })
+ });
+</script>
 <!-- content-wrapper -->
 @endsection

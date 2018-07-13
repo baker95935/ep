@@ -3,79 +3,108 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login</title>
+  <title>StartSeite | Login</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-  <link rel="stylesheet" href="bower_components/morris.js/morris.css">
-  <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <link rel="stylesheet" href="plugins/iCheck/square/blue.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  {{-- "URL::asset" adressiert die Dateien direkt bzw. beginnt vom  "public"-Ordner --}}
+  <link rel="stylesheet" href="{{ URL::asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('bower_components/Ionicons/css/ionicons.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('dist/css/AdminLTE.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('dist/css/skins/_all-skins.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('bower_components/morris.js/morris.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('bower_components/jvectormap/jquery-jvectormap.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('bower_components/datatables.net-bs\js\dataTables.bootstrap.min.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="{{URL::asset('js/app.js')}}" defer></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 
 
 
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="../../index.html"><b>Easyproject</b></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Loggen Sie sich ein !</p>
-
-    <form action="index.html" method="post">
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Angemeldet bleiben !
-            </label>
+<body class="hold-transition skin-blue sidebar-mini login-page">
+  <!-- Wrapper-->
+  <div class="wrapper">
+    <!-- Header -->
+    <header class="main-header">
+      <!-- Navbar-->
+      <nav class="navbar navbar-static-top" style="padding-right:15px;">
+        <div class="content-fluid">
+          <!-- Logo-->
+          <div class="navbar-header">
+            <h2 style="color: white;"><b>EzyProject</b></h2>
           </div>
+      </nav>
+    </header>
+
+
+      <div class="container" style="margin-top: 50px;">
+        <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">{{ __('Login') }}</div>
+
+
+          <div class="card-body">
+            <form action="login" method="POST">
+              {{ csrf_field() }}
+            <!--  <div class="form-group has-feedback">-->
+            <div class="form-group row">
+                <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                <div class="col-md-6">
+                  <input type="email" class="form-control" placeholder="E-Mail Adresse" name="email">
+                  <span class="invalid-feedback" role="alert"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+            <div class="col-md-6">
+            <input type="password" class="form-control" placeholder="Passwort" name="password">
+            <span class="invalid-feedback" role="alert"></span>
+          </div>
+            </div>
+
+            <div class="form-group row">
+            <div class="col-md-6 offset-md-4">
+              <div class="checkbox icheck">
+                <label>
+                  <input type="checkbox"> Angemeldet bleiben ?
+                </label>
+              </div>
+            </div>
+            </div>
+
+            <div class="form-group row mb-0">
+                <div class="col-md-8 offset-md-4">
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Login') }}
+                    </button>
+
+                </div>
+            </div>
+
+          </form>
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">anmelden</button>
-        </div>
-        <!-- /.col -->
       </div>
-    </form>
-
-
-
-    <a href="#">Passwort vergessen ?</a><br>
-
+    </div>
+  </div>
   </div>
 </div>
 
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="../../plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });
-</script>
-
+  <footer class="main-footer">
+     <div class="pull-right hidden-xs">
+       <b>Version</b> 1.0
+     </div>
+     <strong>Copyright &copy; 2018 <a href="">Easy Project</a>.</strong> All rights
+   reserved.
+ </footer>
+ </div>
 </body>
 
 </html>

@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="{{ URL::asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('bower_components/datatables.net-bs\js\dataTables.bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('css/jquery.datetimepicker.css') }}">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
@@ -45,13 +45,13 @@
             </ul>
             <!-- right align -->
             <!-- Name into Navbar if logged in-->
-            @if (Auth::check())
             <ul class="nav navbar-nav navbar-right">
-              <li><a href='#'>{{ Auth::user()->name }}</a></li>
-            </ul>
-            @endif
-            <ul class="nav navbar-nav navbar-right">
-              <li><a class="fa fa-user">  Tianxin</a></li>
+              @if (Auth::check())
+                <li style="color:white;">
+                  <span class="fa fa-user-o" style="vertical-align:middle;margin-bottom:-28px;margin-left:-15px"></span>
+                  <p style="vertical-align:middle;margin-top:-5px; margin-right: 15px;">  {{Auth::user()->name}}</p>
+                </li>
+              @endif
               <li><a href="{{ url('logout') }}">Logout</a></li>
             </ul>
           </div>

@@ -15,11 +15,11 @@
   <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
-<body class="hold-transition skin-blue sidebar-mini"> <!-- f眉r die Seite, muss noch weg sein -->
+<body class="hold-transition skin-blue sidebar-mini"> <!-- für die Seite, muss noch weg sein -->
   <div class="wrapper">
     <header class="main-header">
       <nav class="navbar navbar-static-top">
@@ -105,7 +105,7 @@
                     </tr>
                     <tr>
                       <td>1.</td>
-                      <td>Oberfl盲che entwerfen</td>
+                      <td>Oberfläche entwerfen</td>
                       <td>
                         <div class="progress progress-xs">
                           <div class="progress-bar progress-bar-danger" style="width: 33%"></div>
@@ -135,7 +135,7 @@
                     </tr>
                     <tr>
                       <td>4.</td>
-                      <td>Projektseminar abschlie脽en</td>
+                      <td>Projektseminar abschließen</td>
                       <td>
                         <div class="progress progress-xs progress-striped active">
                           <div class="progress-bar progress-bar-success" style="width: 5%"></div>
@@ -160,8 +160,8 @@
       <!-- /.box-header -->
       <div class="box-body">
         <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-        <ul class="todo-list"> <!--寰呭畬鎴愰」鐩�->
-          <li><!-- 绗竴涓噷绋嬬-->
+        <ul class="todo-list"> <!--待完成项目-->
+          <li><!-- 第一个里程碑-->
             <!-- drag handle -->
             <span class="handle">
                   <i class="fa fa-ellipsis-v"></i>
@@ -169,17 +169,17 @@
                 </span>
             <!-- checkbox -->
             <input type="checkbox" value="">
-            <!-- todo text 寰呭畬鎴愰」鐩殑鍐呭鎻忚堪-->
-            <span class="text">Meilenstein: Oberfl盲che entwerfen</span>
+            <!-- todo text 待完成项目的内容描述-->
+            <span class="text">Meilenstein: Oberfläche entwerfen</span>
             <!-- Emphasis label -->
             <small class="label label-danger"><i class="fa fa-clock-o"></i> 1 Tag </small>
-            <!-- General tools such as edit or delete 缂栬緫鎴栬�鍒犻櫎-->
+            <!-- General tools such as edit or delete 编辑或者删除-->
             <div class="tools">
               <i class="fa fa-edit"></i>
               <i class="fa fa-trash-o"></i>
             </div>
           </li>
-          <!-- 绗簩涓噷绋嬬-->
+          <!-- 第二个里程碑-->
           <li>
                 <span class="handle">
                   <i class="fa fa-ellipsis-v"></i>
@@ -212,7 +212,7 @@
                   <i class="fa fa-ellipsis-v"></i>
                 </span>
             <input type="checkbox" value="">
-            <span class="text">Meilenstein: Projektseminar abschlie脽en </span>
+            <span class="text">Meilenstein: Projektseminar abschließen </span>
             <small class="label label-default"><i class="fa fa-clock-o"></i> 3 Monate</small>
             <div class="tools">
               <i class="fa fa-edit"></i>
