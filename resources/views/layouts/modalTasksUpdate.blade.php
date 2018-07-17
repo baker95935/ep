@@ -18,6 +18,14 @@
             <textarea class="form-control body" value="" id="message-text" name="body" required></textarea>
           </div>
           <div class="form-group">
+            <label for="message-text" class="control-label">Status: </label>
+            <select class="form-control select2 user_id" style="width: 100%;" id="status" name="status" required>
+              @foreach ($tasks as $status)
+                <option value="{{$status->id}}">{{$status->status}}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="form-group">
             <label for="message-text" class="control-label">Verantwortlicher: </label>
             <select class="form-control select2 user_id" style="width: 100%;" id="user_id" name="user_id" required>
               @foreach ($users as $u)
@@ -49,12 +57,21 @@
             {{-- Ändern der Einstellung, damit die Monate in Deutsch angezeigt werden --}}
             jQuery.datetimepicker.setLocale('de');
           </script>
-      <div class="modal-footer">
-        <input type="hidden" class="hiddenId" name="hiddenId"  >
-        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
-        <input type="submit" class="btn btn-primary" value="Änderungen speichern">
-      </div>
-    </form>
+          <div class="modal-footer">
+                  <input type="hidden" class="hiddenId" name="hiddenId"  >
+                  <input type="submit" class="btn btn-primary" value="Änderungen speichern">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+                  </form>
+                </div>
+          <div class="modal-footer">
+            <form action="{{ URL('aufgaben/destroy') }}" method="POST">
+            	<input type="hidden" name="_token" value="{{csrf_token()}}">
+            	<input type="hidden" class="hiddenId" name="hiddenId"  >
+                <input type="submit" class="btn btn-primary" value="delete">
+            </form>
+         </div>
+          
     </div>
   </div>
-  </div>                  
+  </div>
+</div>

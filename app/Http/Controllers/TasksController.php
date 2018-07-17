@@ -23,11 +23,6 @@ class TasksController extends Controller
     return view('aufgaben', compact('tasks','users','meilensteine'));
   }
 
-  public function show(Task $aufgabe)
-  {
-    return "Eine Seite um Aufgaben zu bearbeiten/abzuschließen???";
-  }
-
   //Speichern einer neuen Aufgabe
   public function store(Request $request)
   {
@@ -42,31 +37,37 @@ class TasksController extends Controller
     if ($taskInfo->save()) {
     return redirect('aufgaben');
     } else {
-    return back()->withInput()->withErrors('error,please retry');
+    return back()->withInput()->withErrors('Fehler. Bitte versuchen Sie es nochmal.');
     }
   }
 
-  /*
-   * update
-  */
+  //Aufgabe aktualisieren
   public function update(Request $request)
   {
 	  $meilenstein=$request->input('hiddenId');
-	 
+
 	  $info = Task::find($meilenstein);
-	    	
+
 	  $info->name = $request->input('name');
 	  $info->body = $request->input('body');
+    $info->status = $request->input('status');
 	  $info->user_id = $request->input('user_id');
 	  $info->milestone_id = $request->input('milestone_id');
 	  $info->duedate = date('Y-m-d H:i:s',strtotime($request->input('duedate')));
-	    
-	    
+
 	  if($info->save()) {
 	  	return redirect('aufgaben');
 	  } else {
-	   	return back()->withInput()->withErrors('error,please retry');
+	   	return back()->withInput()->withErrors('Fehler. Bitte versuchen Sie es nochmal.');
 	  }
   }
-  
+
+  public function destroy(Request $request )
+  {
+    $meilenstein=$request->input('hiddenId');
+    $task = Task::find($meilenstein);
+    $task->delete();
+    return redirect('/aufgaben')->with('success', 'Aufgabe erfolgreich gelรถscht');
+  }
+
 }

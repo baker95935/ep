@@ -3,8 +3,6 @@
 Route::get('/', 'indexController@index')->name('home');
 
 Route::get('/home', function () {
-    // Validate the request...
-
     return redirect('login');
 });
 
@@ -23,12 +21,16 @@ Route::post('/meilensteine/update', 'MilestonesController@update');
 
 Route::get('/meilensteine/update', 'MilestonesController@update');
 
+
 Route::get('/aufgaben', 'TasksController@index');
 
 Route::get('/aufgaben/{aufgabe}', 'TasksController@show');
 
-Route::post('/aufgaben/store', 'TasksController@store');
+Route::post('aufgaben/store', 'TasksController@store');
+
 Route::post('/aufgaben/update', 'TasksController@update');
+
+Route::post('/aufgaben/destroy', 'TasksController@destroy');
 
 
 Route::get('/login', 'authController@viewLogin')->name('login');
