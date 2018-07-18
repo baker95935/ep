@@ -63,13 +63,6 @@
                   <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
                   </form>
                 </div>
-          <div class="modal-footer">
-            <form action="{{ URL('aufgaben/destroy') }}" method="POST">
-            	<input type="hidden" name="_token" value="{{csrf_token()}}">
-            	<input type="hidden" class="hiddenId" name="hiddenId"  >
-                <input type="submit" class="btn btn-primary" value="delete">
-            </form>
-         </div>
           
     </div>
   </div>

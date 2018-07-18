@@ -30,7 +30,8 @@ Route::post('aufgaben/store', 'TasksController@store');
 
 Route::post('/aufgaben/update', 'TasksController@update');
 
-Route::post('/aufgaben/destroy', 'TasksController@destroy');
+Route::post('/aufgaben/destroy/{id}', 'TasksController@destroy');
+
 
 
 Route::get('/login', 'authController@viewLogin')->name('login');

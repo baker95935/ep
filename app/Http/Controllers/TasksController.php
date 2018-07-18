@@ -62,9 +62,8 @@ class TasksController extends Controller
 	  }
   }
 
-  public function destroy(Request $request )
+  public function destroy($meilenstein)
   {
-    $meilenstein=$request->input('hiddenId');
     $task = Task::find($meilenstein);
     $task->delete();
     return redirect('/aufgaben')->with('success', 'Aufgabe erfolgreich gelรถscht');

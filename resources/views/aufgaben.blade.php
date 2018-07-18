@@ -45,7 +45,13 @@
                 <td>
 
 	      		<button data-name="{{$task->name}}" data-body="{{$task->body}}" data-username="{{$users[($task->user_id)-1]->name}}" data-milestone="{{$task->milestone->name}}" data-duedate="{{$task->duedate}}" data-id="{{$task->id}}" class="btn btn-success"   data-toggle="modal" data-target="#tasksUpdate" >edit</button>
-
+	 
+                  
+                <form action="{{ URL('aufgaben/destroy/'.$task->id) }}" method="POST">
+            	<input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input type="submit" onclick="{if(confirm('are you sure delete?')){this.document.formname.submit();return true;}return false;}" class="btn btn-primary" value="delete">
+            	</form>
+                  
   				</td>
 
               </tr>
@@ -97,6 +103,8 @@
 			  		modal.find('.datetimepickeredit').val(duedate);
 		          })
 		       });
+
+		      
 
         </script>
 </div>
