@@ -20,7 +20,8 @@ class TasksController extends Controller
     $users = User::all();
     $meilensteine = Milestone::all();
 
-    return view('aufgaben', compact('tasks','users','meilensteine'));
+    $mid="";
+    return view('aufgaben', compact('tasks','users','meilensteine','mid'));
   }
 
   //Speichern einer neuen Aufgabe
