@@ -32,8 +32,9 @@ class MilestonesController extends Controller
         $tasks = Task::all()->where('milestone_id', '=', $meilenstein->id);
         $users = User::all();
         $meilensteine = Milestone::all();
+        $mid=$meilenstein->id;
 
-        return view('aufgaben', compact('tasks','users','meilensteine'));
+        return view('aufgaben', compact('tasks','users','meilensteine','mid'));
     }
     //Speichern
     public function store(Request $request)

@@ -19,7 +19,7 @@
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">Status: </label>
-            <select class="form-control select2 user_id" style="width: 100%;" id="status" name="status" required>
+            <select class="form-control select2 status" style="width: 100%;" id="status" name="status" required>
               @foreach ($tasks as $status)
                 <option value="{{$status->id}}">{{$status->status}}</option>
               @endforeach

@@ -27,7 +27,7 @@
           </div>
           <div class="form-group">
             <label for="message-text" class="control-label">Milestone: </label>
-            <select class="form-control select2" style="width: 100%;" id="files" name="milestone_id" required>
+            <select class="form-control select2 milestone_id" style="width: 100%;" id="milestone_id" name="milestone_id" required>
               @foreach ($meilensteine as $ms)
               <option value="{{$ms->id}}">{{$ms->name}}</option>
                 @endforeach

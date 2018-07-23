@@ -44,7 +44,7 @@
                 <td>{{$task->duedate}}</td>
                 <td>
 
-	      		<button data-name="{{$task->name}}" data-body="{{$task->body}}" data-username="{{$users[($task->user_id)-1]->name}}" data-milestone="{{$task->milestone->name}}" data-duedate="{{$task->duedate}}" data-id="{{$task->id}}" class="btn btn-success"   data-toggle="modal" data-target="#tasksUpdate" >edit</button>
+	      		<button data-name="{{$task->name}}" data-status="{{$task->status}}" data-body="{{$task->body}}" data-userid="{{$task->user_id}}" data-username="{{$users[($task->user_id)-1]->name}}" data-milestone_id="{{$task->milestone_id}}" data-milestone="{{$task->milestone->name}}" data-duedate="{{$task->duedate}}" data-id="{{$task->id}}" class="btn btn-success"   data-toggle="modal" data-target="#tasksUpdate" >edit</button>
 	 
                   
                 <form action="{{ URL('aufgaben/destroy/'.$task->id) }}" method="POST">
@@ -93,17 +93,32 @@
 			  		var name = button.data('name'); // Extract info from data-* attributes
 			  		var body = button.data('body'); // Extract info from data-* attributes
 			  		var username = button.data('username'); // Extract info from data-* attributes
+					var userid = button.data('userid');
 			  		var milestone = button.data('milestone') ;// Extract info from data-* attributes
 			     	var duedate = button.data('duedate'); // Extract info from data-* attributes
-
+			     	var milestone_id= button.data('milestone_id');
+			     	var status=button.data('status');
+			     	
 			  		var modal = $(this);
 			  		modal.find('.hiddenId').val(id);
 			  		modal.find('.name').val(name);
 			  		modal.find('.body').val(body);
 			  		modal.find('.datetimepickeredit').val(duedate);
+			  		modal.find('.user_id').val(userid).trigger("change");
+			  		modal.find('.milestone_id').val(milestone_id).trigger("change");
+			  		modal.find('.status').val(milestone_id).trigger("change");
+			  		
 		          })
 		       });
 
+
+		      $(function () { $('#tasks').on('show.bs.modal', function (event) {
+
+			  		var modal = $(this);
+			  		modal.find('.milestone_id').val({{$mid}}).prop("disabled", true);
+			  		
+		          })
+		       });
 		      
 
         </script>
